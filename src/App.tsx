@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { Intro } from "./Intro";
 import { Skills } from "./Skills";
 import { actions, initial, state } from "./type";
