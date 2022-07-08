@@ -23,7 +23,7 @@ export const Intro = ({ size, state, dispatch }: { size: { width: number; height
       </div>
 
       <div className="flex-1 flex mb-10 mt-4 md:m-0">
-        <div className="w-60 h-60 m-auto" onMouseEnter={()=>dispatch({type: "hover", act: true})} onMouseLeave={()=>dispatch({type: "hover", act: false})}>
+        <div className="w-60 h-60 m-auto transition-all" onMouseEnter={()=>dispatch({type: "hover", act: true})} onMouseLeave={()=>dispatch({type: "hover", act: false})}>
           {state.hover ? (
             <div className="w-full h-full bg-red-700 flex flex-col relative">
               <div>
@@ -34,7 +34,7 @@ export const Intro = ({ size, state, dispatch }: { size: { width: number; height
               </div>
             </div>
           ) : (
-            <div className="w-full h-full border-4 border-dotted flex">
+            <div className="w-full h-full flex" id="logo">
               <h1 className="my-auto w-full text-6xl text-center">New<br />LOGO</h1>
             </div>
           )}

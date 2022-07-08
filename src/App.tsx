@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useRef, useState } from "react";
 import { Intro } from "./Intro";
+import { Skills } from "./Skills";
 import { actions, initial, state } from "./type";
 
   const reducer = (state:state, actions:actions) => {
@@ -20,7 +21,6 @@ import { actions, initial, state } from "./type";
 export const App = () => {
   const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
   const [state, dispatch] = useReducer(reducer, initial)
-  const logo = useRef<HTMLDivElement>(null!)
   useEffect(()=>{
     window.addEventListener("resize", () => setSize({ width: window.innerWidth, height: window.innerHeight }))
     let i = 0
@@ -32,11 +32,14 @@ export const App = () => {
 
     },300)
   },[])
-  console.log(state.hover)
+  
   return (
     <div>
       <section style={{ height: size.height }}>
         <Intro size={size} state={state} dispatch={dispatch}/>
+      </section>
+      <section style={{height: size.height}}>
+      <Skills />
       </section>
     </div>
   );
