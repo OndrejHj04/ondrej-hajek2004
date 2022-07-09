@@ -2,7 +2,7 @@ import { actions, state } from "./type";
 
 export const Intro = ({ state, dispatch }: {state: state, dispatch: React.Dispatch<actions> }) => {
   return (
-    <div className="w-full h-auto bg-black font-roboto flex text-white md:flex-row flex-col min-h-full">
+    <div className="w-full bg-black font-roboto flex text-white md:flex-row flex-col" style={{ height: "auto", minHeight: state.window.height }}>
       <div className="h-auto flex md:text-8xl text-5xl md:m-0 mt-8 mx-auto">
         <div className="grid p-2 my-auto">
           <p>{state.firstName[0]}</p>
