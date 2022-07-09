@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import { Free } from "./Free";
 import { Intro } from "./Intro";
 import { Skills } from "./Skills";
 import { actions, initial, state } from "./type";
@@ -43,10 +44,10 @@ export const App = () => {
         <Intro state={state} dispatch={dispatch} />
       </section>
       <section>
-        <Skills state={state} />
+        <Skills window={state.window} />
       </section>
       <section>
-
+        <Free height={state.window.height}/>
       </section>
     </div>
   );
