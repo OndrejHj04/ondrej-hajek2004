@@ -4,24 +4,22 @@ import { state } from "./type";
 export const Skills = ({ state }: { state: state }) => {
   return (
     <div className="w-full font-roboto flex" style={{ fontSize: "calc(18px + 1.5vw", height: "auto", minHeight: state.window.height }}>
-
       <div id="" className="border-r-4 border-dashed flex border-black w-20">
         <div className=" w-full text-center" style={{ writingMode: "vertical-lr" }}>
           <div className="flex w-full justify-center">
-            <img src={finishIMG} alt="" className="w-20 p-1 -rotate-90"/>
+            <img src={finishIMG} alt="" className="w-20 p-1 -rotate-90" />
             <p className="rotate-180 text-7xl">finish</p>
           </div>
         </div>
       </div>
 
       <div className="w-full flex flex-col justify-between" style={{}}>
-
         <div>
           <div className="flex justify-end m-2 mr-0 scale-y-100 transition-all">
             <img src={react} alt="" className="md:w-28 w-12" />
             <p className="my-auto">React</p>
           </div>
-          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= 200 ? "scale(0.4, 1)" : "scale(0, 1)", background: reactBG }} />
+          <div id="transition" className={`md:h-7 h-3`} style={{ transform: state.window.position >= state.window.offsets[0] - state.window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: reactBG }} />
         </div>
 
         <div>
@@ -29,7 +27,7 @@ export const Skills = ({ state }: { state: state }) => {
             <img src={firebase} alt="" className="md:w-28 w-12 md:h-28 h-12" />
             <p className="my-auto">Firebase</p>
           </div>
-          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= 350 ? "scale(0.5, 1)" : "scale(0, 1)", background: firebaseBG }} />
+          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= state.window.offsets[1] - state.window.height ? "scale(0.5, 1)" : "scale(0, 1)", background: firebaseBG }} />
         </div>
 
         <div>
@@ -37,7 +35,7 @@ export const Skills = ({ state }: { state: state }) => {
             <img src={tailwind} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Tailwind</p>
           </div>
-          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= 500 ? "scale(0.7, 1)" : "scale(0, 1)", background: tailwindBG }} />
+          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= state.window.offsets[2] - state.window.height ? "scale(0.7, 1)" : "scale(0, 1)", background: tailwindBG }} />
         </div>
 
         <div>
@@ -45,7 +43,7 @@ export const Skills = ({ state }: { state: state }) => {
             <img src={typescript} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Typescript</p>
           </div>
-          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= 650 ? "scale(0.3, 1)" : "scale(0, 1)", background: typescriptBG }} />
+          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= state.window.offsets[3] - state.window.height ? "scale(0.3, 1)" : "scale(0, 1)", background: typescriptBG }} />
         </div>
 
         <div>
@@ -53,9 +51,8 @@ export const Skills = ({ state }: { state: state }) => {
             <img src={cypress} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Cypress</p>
           </div>
-          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= 650 ? "scale(0.4, 1)" : "scale(0, 1)", background: cypressBG }} />
+          <div id="transition" className="md:h-7 h-3" style={{ transform: state.window.position >= state.window.offsets[4] - state.window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: cypressBG }} />
         </div>
-
 
         <div className="md:text-4xl text-2xl grid w-fit ">
           <img src={require("./images/arrow.png")} alt="" className="sm:w-56 w-32 my-auto sm:row-span-2 row-span-auto" style={{ transform: "rotate(180deg)" }} />

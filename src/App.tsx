@@ -15,7 +15,9 @@ const reducer = (state: state, actions: actions) => {
     case "hover":
       return { ...state, hover: actions.act };
     case "resize":
-      return { ...state, window: { ...state.window, width: window.innerWidth, height: window.innerHeight } };
+    const offsets:number[] = []
+      document.querySelectorAll("#transition").forEach(item=>offsets.push((item as HTMLElement).offsetTop ))
+      return { ...state, window: { ...state.window, width: window.innerWidth, height: window.innerHeight, offsets: offsets } };
     case "scroll":
       return { ...state, window: { ...state.window, position: window.scrollY } };
   }
@@ -24,6 +26,7 @@ const reducer = (state: state, actions: actions) => {
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initial);
   useEffect(() => {
+    dispatch({ type: "resize" })
     window.addEventListener("resize", () => dispatch({ type: "resize" }));
     window.addEventListener("scroll", () => dispatch({ type: "scroll" }));
     let i = 0;
@@ -41,6 +44,9 @@ export const App = () => {
       </section>
       <section>
         <Skills state={state} />
+      </section>
+      <section>
+
       </section>
     </div>
   );
