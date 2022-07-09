@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Intro } from "./Intro";
 import { Skills } from "./Skills";
 import { actions, initial, state } from "./type";
@@ -14,15 +14,19 @@ import { actions, initial, state } from "./type";
         return {...state, firstName: state.firstName, secondName: state.secondName}
       case "hover":
         return {...state, hover: actions.act}
+      case "resize":
+        return {...state, window: {...state.window, width: window.innerWidth, height: window.innerHeight}}
+      case "scroll":
+        return {...state, window: {...state.window, position: window.scrollY}}
     }
 
   }
 
 export const App = () => {
-  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
   const [state, dispatch] = useReducer(reducer, initial)
   useEffect(()=>{
-    window.addEventListener("resize", () => setSize({ width: window.innerWidth, height: window.innerHeight }))
+    window.addEventListener("resize", () => dispatch({type: "resize"}))
+    window.addEventListener("scroll", ()=>dispatch({type: "scroll"}))
     let i = 0
     const interval = setInterval(()=>{
       
@@ -35,11 +39,11 @@ export const App = () => {
   
   return (
     <div>
-      <section style={{ height: size.height }}>
-        <Intro size={size} state={state} dispatch={dispatch}/>
+      <section style={{ height: state.window.height }}>
+        <Intro state={state} dispatch={dispatch}/>
       </section>
-      <section style={{height: size.height}}>
-      <Skills />
+      <section style={{height: state.window.height}}>
+      <Skills state={state}/>
       </section>
     </div>
   );

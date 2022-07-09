@@ -1,5 +1,5 @@
-export const initial = { firstName: ["_", "_", "_", "_", "_"], secondName: ["_", "_", "_", "_", "_"], hover: false };
-export type state = { firstName: string[]; secondName: string[], hover: boolean };
+export const initial = { firstName: ["_", "_", "_", "_", "_"], secondName: ["_", "_", "_", "_", "_"], hover: false, window: {height: window.innerHeight, width: window.innerWidth, position: window.screenY} };
+export type state = { firstName: string[]; secondName: string[], hover: boolean, window: {height: number, width: number, position: number} };
 type name = {
   type: "name";
   index: number;
@@ -8,4 +8,10 @@ type hover = {
   type: "hover",
   act: boolean
 }
-export type actions = name | hover;
+type resize = {
+  type: "resize"
+}
+type scroll = {
+  type: "scroll"
+}
+export type actions = name | hover | resize | scroll;

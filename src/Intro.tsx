@@ -1,6 +1,6 @@
 import { actions, state } from "./type";
 
-export const Intro = ({ size, state, dispatch }: { size: { width: number; height: number }; state: state, dispatch: React.Dispatch<actions> }) => {
+export const Intro = ({ state, dispatch }: {state: state, dispatch: React.Dispatch<actions> }) => {
   return (
     <div className="w-full h-auto bg-black font-roboto flex text-white md:flex-row flex-col min-h-full">
       <div className="h-auto flex md:text-8xl text-5xl md:m-0 mt-8 mx-auto">
@@ -11,7 +11,7 @@ export const Intro = ({ size, state, dispatch }: { size: { width: number; height
           <p>{state.firstName[3]}</p>
           <p>{state.firstName[4]}</p>
 
-          <p className="row-span-2" style={size.width > 767 ? { fontSize: "192px", lineHeight: "150px", letterSpacing: "-20px" } : { fontSize: "150px", lineHeight: "50px", letterSpacing: "-25px", marginLeft: "-20px" }}>
+          <p className="row-span-2" style={state.window.width > 767 ? { fontSize: "192px", lineHeight: "150px", letterSpacing: "-20px" } : { fontSize: "150px", lineHeight: "50px", letterSpacing: "-25px", marginLeft: "-20px" }}>
             j
           </p>
 
