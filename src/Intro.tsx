@@ -28,8 +28,8 @@ export const Intro = ({ state, dispatch }: {state: state, dispatch: React.Dispat
             <div className="w-full h-full bg-red-700 flex flex-col relative">
               <div>
                 <p className="text-9xl text-center z-40">404</p>
-                <h1 className="text-white p-1 z-40">
-                  Error: computer graphic isn´t in Ondřej Hájek´s skill-set! You may find solution <span className="text-yellow-400 font-semibold">hier.</span>
+                <h1 className="text-white z-40">
+                  Error: computer graphic isn´t in Ondřej Hájek´s skill-set! Fell free to leave him a message <span className="text-yellow-400 font-semibold">hier</span>
                 </h1>
               </div>
             </div>

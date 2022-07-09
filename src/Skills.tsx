@@ -3,7 +3,7 @@ import { state } from "./type";
 
 export const Skills = ({ state }: { state: state }) => {
   return (
-    <div className="w-full h-full font-roboto flex " style={{ fontSize: "calc(22px + 1.5vw" }}>
+    <div className="w-full font-roboto flex min-h-full h-auto" style={{ fontSize: "calc(22px + 1.5vw" }}>
 
       <div id="" className="border-r-4 border-dashed flex border-black w-20">
         <div className="h-full w-full text-center" style={{ writingMode: "vertical-lr" }}>
@@ -14,7 +14,7 @@ export const Skills = ({ state }: { state: state }) => {
         </div>
       </div>
 
-      <div className="w-full h-full flex flex-col justify-between">
+      <div className="w-full flex flex-col justify-between">
 
         <div>
           <div className="flex justify-end m-2 mr-0 scale-y-100 transition-all">
@@ -57,7 +57,7 @@ export const Skills = ({ state }: { state: state }) => {
         </div>
 
 
-        <div className="text-4xl grid w-fit">
+        <div className="text-4xl grid w-fit ">
           <img src={require("./images/arrow.png")} alt="" className="sm:w-56 w-32 my-auto sm:row-span-2 row-span-auto" style={{ transform: "rotate(180deg)" }} />
 
           <div className="flex">
