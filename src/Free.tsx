@@ -33,17 +33,17 @@ export const Free = memo(({ height }: { height: number }) => {
         <div className="grid grid-rows-3 m-auto md:text-4xl text-lg border-4 p-3 rounded-2xl">
 
           <div className="flex">
-            {keyboardFirst.map((item) => <p key={item} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!text.includes(item)&&item}</p>)}
+            {keyboardFirst.map((item) => <p key={item} onClick={(e)=>setText(c=>c+(e.target as HTMLElement).textContent)} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!text.includes(item)&&item}</p>)}
           </div>
 
           <div className="flex">
-            <p className="border-2 md:w-12 md:h-12 w-7 h-7 text-center ml-3">{!text.includes("a")&&"a"}</p>
-            {keyboardSecond.map((item) => <p key={item} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!text.includes(item)&&item}</p>)}
+            <p className="border-2 md:w-12 md:h-12 w-7 h-7 text-center ml-3" onClick={(e)=>setText(c=>c+(e.target as HTMLElement).textContent)}>{!text.includes("a")&&"a"}</p>
+            {keyboardSecond.map((item) => <p key={item} onClick={(e)=>setText(c=>c+(e.target as HTMLElement).textContent)} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!text.includes(item)&&item}</p>)}
           </div>
 
           <div className="flex">
-            <p className="border-2 md:w-12 md:h-12 w-7 h-7 text-center ml-10">{!text.includes("y")&&"y"}</p>
-            {keyboardThird.map((item) => <p key={item} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!text.includes(item)&&item}</p>)}
+            <p className="border-2 md:w-12 md:h-12 w-7 h-7 text-center ml-10" onClick={(e)=>setText(c=>c+(e.target as HTMLElement).textContent)}>{!text.includes("y")&&"y"}</p>
+            {keyboardThird.map((item) => <p key={item} onClick={(e)=>setText(c=>c+(e.target as HTMLElement).textContent)} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!text.includes(item)&&item}</p>)}
           </div>
         </div>
       </div>
