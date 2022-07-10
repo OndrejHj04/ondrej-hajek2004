@@ -30,11 +30,15 @@ type offset = {
 };
 export type skillsActions = offset;
 
-export type activities = {};
-export const activitiesObject = {};
+export type activities = {aim: number, kick: boolean};
+export const activitiesObject = {aim: -1, kick: false};
 
-export type type = {
-  type: "type";
+export type aim = {
+  type: "aim",
+  aim: number
 };
 
-export type activitiesActions = type;
+export type kick = {
+  type: "kick"
+}
+export type activitiesActions = aim | kick;
