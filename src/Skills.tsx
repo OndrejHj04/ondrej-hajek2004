@@ -30,7 +30,7 @@ export const Skills = memo(({ height, scrollY }: { height: number, scrollY: numb
         </div>
       </div>
 
-      <div className="w-full flex flex-col justify-between" style={{}}>
+      <div className="w-full flex flex-col justify-between">
         <div>
           <div className="flex justify-end m-2 mr-0 scale-y-100 transition-all">
             <img src={react} alt="" className="md:w-28 w-12" />

@@ -30,19 +30,11 @@ type offset = {
 };
 export type skillsActions = offset;
 
-export type activities = { keyboard: string; toggle: boolean };
-export const activitiesObject = { keyboard: "", toggle: false };
+export type activities = {};
+export const activitiesObject = {};
 
-type keyboard = {
-  type: "keyboard";
-  key: string
+export type type = {
+  type: "type";
 };
 
-type toggle = {
-  type: "toggle";
-};
-
-type backspace = {
-  type: "backspace"
-}
-export type activitiesActions = keyboard | toggle | backspace;
+export type activitiesActions = type;
