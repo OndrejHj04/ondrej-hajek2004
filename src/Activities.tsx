@@ -17,9 +17,9 @@ export const Activities = memo(({ screen }: { screen: screen }) => {
   const [activities, dispatch] = useReducer(reducer, activitiesObject)
 
   useEffect(() => {
-    setInterval(() => {
-      dispatch({type: "toggle"})
-    }, 1000);
+    // setInterval(() => {
+    //   dispatch({type: "toggle"})
+    // }, 1000);
   }, []);
 
   useEffect(() => {
@@ -36,14 +36,14 @@ export const Activities = memo(({ screen }: { screen: screen }) => {
   
   return (
     <div style={{ minHeight: screen.height, height: "auto" }} className="bg-black flex text-white xl:flex-row flex-col">
-      <div className="xl:w-1/2 w-full  flex flex-col border-r-4 border-dashed">
+      <div className="xl:w-1/2 w-full flex flex-col border-r-4 border-dashed">
         <div className="xl:text-7xl text-4xl text-center">
           <p className="break-words my-4">
             {activities.keyboard}
             <span className={`${activities.toggle ? "opacity-100" : "opacity-0"}`}>|</span>
           </p>
         </div>
-        <div className="grid grid-rows-3 m-auto md:text-4xl text-lg border-4 p-3 rounded-2xl">
+        <div className="grid grid-rows-3 m-auto xl:mb-auto md:text-4xl text-lg border-4 p-3 rounded-2xl mb-3">
 
           <div className="flex">
             {keyboardFirst.map((item) => <p key={item} onClick={(e)=>dispatch({type: "keyboard", key: (e.target as HTMLInputElement).textContent!})} className="border-2 md:w-12 md:h-12 w-7 h-7 text-center">{!activities.keyboard.includes(item)&&item}</p>)}
@@ -61,17 +61,14 @@ export const Activities = memo(({ screen }: { screen: screen }) => {
         </div>
       </div>
 
-      <div className="xl:w-1/2 flex-1 w-full border-l-4 border-dashed flex">
-        <div className="grid grid-cols-5 grid-rows-5 w-full">
-          <div id="ball" className={`transition-all flex relative`}>
-
-            <div className="w-full h-full relative">
-              <img src={require("./images/boom.png")} alt="" className="w-20 h-20 absolute"/>
-            </div>
-
-          </div>
+      <div className="xl:w-1/2 xl:h-auto w-full border-l-4 border-dashed flex flex-col" style={{height: screen.height}}>
+      <div className="bg-blue-600 h-1/5 w-full flex"></div>
+        <div className="bg-green-600 h-2/5 w-full">
+          <div className="border-8 border-b-0 sm:w-96 w-72 sm:h-36 h-28 mx-auto -mt-10"></div>
         </div>
+        <div className="bg-green-600 h-2/5 w-full"></div> 
       </div>
     </div>
   );
 });
+         
