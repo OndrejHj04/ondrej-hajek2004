@@ -1,6 +1,17 @@
-export type window = {offsets: number[];height: number;width: number; position: number;};
-export const initial = { firstName: ["_", "_", "_", "_", "_"], secondName: ["_", "_", "_", "_", "_"], hover: false, window: { offsets: [], height: window.innerHeight, width: window.innerWidth, position: window.screenY } };
-export type state = { firstName: string[]; secondName: string[]; hover: boolean; window: window };
+export type screen = { width: number; height: number; scrollY: number };
+export const screenObject = { width: window.innerWidth, height: window.innerHeight, scrollY: window.scrollY };
+
+type resize = {
+  type: "resize";
+};
+type scroll = {
+  type: "scroll";
+};
+export type screenActions = resize | scroll;
+
+export type intro = { firstName: string[]; secondName: string[]; hover: boolean };
+export const introObject = { firstName: ["_", "_", "_", "_", "_"], secondName: ["_", "_", "_", "_", "_"], hover: false };
+
 type name = {
   type: "name";
   index: number;
@@ -9,10 +20,29 @@ type hover = {
   type: "hover";
   act: boolean;
 };
-type resize = {
-  type: "resize";
+export type introActions = name | hover;
+
+export type skills = { offsets: number[] };
+export const skillsObject = { offsets: [] };
+
+type offset = {
+  type: "offset";
 };
-type scroll = {
-  type: "scroll";
+export type skillsActions = offset;
+
+export type activities = { keyboard: string; toggle: boolean };
+export const activitiesObject = { keyboard: "", toggle: false };
+
+type keyboard = {
+  type: "keyboard";
+  key: string
 };
-export type actions = name | hover | resize | scroll;
+
+type toggle = {
+  type: "toggle";
+};
+
+type backspace = {
+  type: "backspace"
+}
+export type activitiesActions = keyboard | toggle | backspace;

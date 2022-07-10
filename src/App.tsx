@@ -1,53 +1,36 @@
 import React, { useEffect, useReducer } from "react";
-import { Free } from "./Free";
+import { Activities } from "./Activities";
 import { Intro } from "./Intro";
 import { Skills } from "./Skills";
-import { actions, initial, state } from "./type";
+import { screen, screenActions, screenObject } from "./type";
 
-const reducer = (state: state, actions: actions) => {
+const reducer = (screen: screen, actions: screenActions) => {
   switch (actions.type) {
-    case "name":
-      const first = ["o", "n", "d", "ř", "e"];
-      state.firstName[actions.index] = first[actions.index];
-      const second = ["h", "á", "", "e", "k"];
-      state.secondName[actions.index] = second[actions.index];
-
-      return { ...state, firstName: state.firstName, secondName: state.secondName };
-    case "hover":
-      return { ...state, hover: actions.act };
     case "resize":
-    const offsets:number[] = []
-      document.querySelectorAll("#transition").forEach(item=>offsets.push((item as HTMLElement).offsetTop ))
-      return { ...state, window: { ...state.window, width: window.innerWidth, height: window.innerHeight, offsets: offsets } };
+      return { ...screen, width: window.innerWidth, height: window.innerHeight  };
     case "scroll":
-      return { ...state, window: { ...state.window, position: window.scrollY } };
+      return { ...screen, scrollY: window.scrollY };
   }
 };
 
 export const App = () => {
-  const [state, dispatch] = useReducer(reducer, initial);
+  const [screen, dispatch] = useReducer(reducer, screenObject);
   useEffect(() => {
     dispatch({ type: "resize" })
     window.addEventListener("resize", () => dispatch({ type: "resize" }));
     window.addEventListener("scroll", () => dispatch({ type: "scroll" }));
-    let i = 0;
-    const interval = setInterval(() => {
-      i > 3 && clearInterval(interval);
-      dispatch({ type: "name", index: i });
-      i++;
-    }, 300);
   }, []);
-
+  
   return (
     <div>
       <section>
-        <Intro state={state} dispatch={dispatch} />
+        <Intro width={screen.width} height={screen.height}  />
       </section>
       <section>
-        <Skills window={state.window} />
+        <Skills height={screen.height} scrollY={screen.scrollY}/>
       </section>
       <section>
-        <Free height={state.window.height}/>
+        <Activities screen={screen}/>
       </section>
     </div>
   );

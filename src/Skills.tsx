@@ -1,14 +1,30 @@
-import { cypress, cypressBG, finishIMG, firebase, firebaseBG, react, reactBG, tailwind, tailwindBG, typescript, typescriptBG, warningIMG } from "./support";
-import { window } from "./type";
+import { memo, useEffect, useReducer } from "react";
+import { cypress, cypressBG, firebase, firebaseBG, react, reactBG, tailwind, tailwindBG, typescript, typescriptBG, warningIMG } from "./support";
+import { skills, skillsActions, skillsObject } from "./type";
 
-export const Skills = ({ window }: { window: window }) => {
+const reducer = (skills: skills, action: skillsActions) => {
+  switch (action.type) {
+    case "offset":
+      const offsets: number[] = [];
+      document.querySelectorAll("#transition").forEach((item) => offsets.push((item as HTMLElement).offsetTop));
+      return { ...skills, offsets: offsets };
+  }
+};
+
+export const Skills = memo(({ height, scrollY }: { height: number, scrollY: number }) => {
+  const [skills, dispatch] = useReducer(reducer, skillsObject);
+
+  useEffect(() =>{
+    dispatch({type: "offset"})
+    window.addEventListener("resize", () => dispatch({ type: "offset" }))
+  }, []);
 
   return (
-    <div className="w-full font-roboto flex" style={{ fontSize: "calc(18px + 1.5vw", height: "auto", minHeight: window.height }}>
+    <div className="w-full font-roboto flex" style={{ fontSize: "calc(18px + 1.5vw", height: "auto", minHeight: height }}>
       <div id="" className="border-r-4 border-dashed flex border-black w-20">
         <div className=" w-full text-center" style={{ writingMode: "vertical-lr" }}>
           <div className="flex w-full justify-center">
-            <img src={finishIMG} alt="" className="w-20 p-1 -rotate-90" />
+            <img src={require("./images/finish.png")} alt="" className="w-20 p-1 -rotate-90" />
             <p className="rotate-180 text-7xl">finish</p>
           </div>
         </div>
@@ -20,7 +36,7 @@ export const Skills = ({ window }: { window: window }) => {
             <img src={react} alt="" className="md:w-28 w-12" />
             <p className="my-auto">React</p>
           </div>
-          <div id="transition" className={`md:h-7 h-3`} style={{ transform: window.position >= window.offsets[0] - window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: reactBG }} />
+          <div id="transition" className={`md:h-7 h-3`} style={{ transform: scrollY >= skills.offsets[0] - height ? "scale(0.4, 1)" : "scale(0, 1)", background: reactBG }} />
         </div>
 
         <div>
@@ -28,7 +44,7 @@ export const Skills = ({ window }: { window: window }) => {
             <img src={firebase} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Firebase</p>
           </div>
-          <div id="transition" className={`md:h-7 h-3`} style={{ transform: window.position >= window.offsets[1] - window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: firebaseBG }} />
+          <div id="transition" className={`md:h-7 h-3`} style={{ transform: scrollY >= skills.offsets[1] - height ? "scale(0.4, 1)" : "scale(0, 1)", background: firebaseBG }} />
         </div>
 
         <div>
@@ -36,7 +52,7 @@ export const Skills = ({ window }: { window: window }) => {
             <img src={tailwind} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Tailwind</p>
           </div>
-          <div id="transition" className={`md:h-7 h-3`} style={{ transform: window.position >= window.offsets[2] - window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: tailwindBG }} />
+          <div id="transition" className={`md:h-7 h-3`} style={{ transform: scrollY >= skills.offsets[2] - height ? "scale(0.4, 1)" : "scale(0, 1)", background: tailwindBG }} />
         </div>
 
         <div>
@@ -44,7 +60,7 @@ export const Skills = ({ window }: { window: window }) => {
             <img src={typescript} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Typescript</p>
           </div>
-          <div id="transition" className={`md:h-7 h-3`} style={{ transform: window.position >= window.offsets[3] - window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: typescriptBG }} />
+          <div id="transition" className={`md:h-7 h-3`} style={{ transform: scrollY >= skills.offsets[3] - height ? "scale(0.4, 1)" : "scale(0, 1)", background: typescriptBG }} />
         </div>
 
         <div>
@@ -52,7 +68,7 @@ export const Skills = ({ window }: { window: window }) => {
             <img src={cypress} alt="" className="md:w-28 w-12" />
             <p className="my-auto">Cypress</p>
           </div>
-          <div id="transition" className={`md:h-7 h-3`} style={{ transform: window.position >= window.offsets[4] - window.height ? "scale(0.4, 1)" : "scale(0, 1)", background: cypressBG }} />
+          <div id="transition" className={`md:h-7 h-3`} style={{ transform: scrollY >= skills.offsets[4] - height ? "scale(0.4, 1)" : "scale(0, 1)", background: cypressBG }} />
         </div>
 
         <div className="md:text-4xl text-2xl grid w-fit ">
@@ -68,4 +84,4 @@ export const Skills = ({ window }: { window: window }) => {
       </div>
     </div>
   );
-};
+})
