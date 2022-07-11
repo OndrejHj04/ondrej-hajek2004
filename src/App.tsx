@@ -30,7 +30,7 @@ export const App = () => {
         <Skills height={screen.height} scrollY={screen.scrollY} />
       </section>
       <section>
-        <Activities screen={screen} />
+        <Activities height={screen.height} />
       </section>
     </div>
   );

@@ -2,28 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+#logo {
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='10' stroke-dasharray='30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
 
-#logo{
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='10' stroke-dasharray='30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+#four-oh-four {
+    background: rgb(255,0,0);
+    background: linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(200,103,103,1) 50%, rgba(255,0,0,1) 100%);
 }
-#transition{
-    transition-duration: 500ms;
-    transition-property: all;
-    transform-origin: right;
+#transition {
+  transition-duration: 500ms;
+  transition-property: all;
+  transform-origin: right;
 }
-#finishLine{
-    background-image: url("data:image/svg+xml,%3csvg width='100%21' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='white' stroke='black' stroke-width='13' stroke-dasharray='30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+#finishLine {
+  background-image: url("data:image/svg+xml,%3csvg width='100%21' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='white' stroke='black' stroke-width='13' stroke-dasharray='30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
-#ball{
-    background: url(http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+
+@keyframes example {
+  0%   {padding:0px;}
+  25%  {padding:24px;}
+  50%  {padding:0px;}
+  75%  {padding:24px;}
+  100% {padding:0px;}
 }
-#net{
-    background: url(./images/net.png);
-    background-size: 30%;
-}
-#grass{
-    background: #009A17;
+
+#logo-container{
+  animation-name: example;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
