@@ -12,14 +12,12 @@ const reducer = (intro: intro, action: introActions) => {
       return { ...intro, firstName: intro.firstName, secondName: intro.secondName };
     case "hover":
       return { ...intro, hover: action.act };
-    case "swing":
-      return { ...intro, swing: true };
   }
 };
 
 export const Intro = memo(({ width, height }: { width: number; height: number }) => {
   const [intro, dispatch] = useReducer(reducer, introObject);
-
+  
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
@@ -47,7 +45,7 @@ export const Intro = memo(({ width, height }: { width: number; height: number })
       <div className="flex-1 flex my-5">
         <div className="w-64 h-64 m-auto" id={`${intro.hover?"":"logo-container"}`} onMouseEnter={() => dispatch({ type: "hover", act: true })} onMouseLeave={() => dispatch({ type: "hover", act: false })}>
           {intro.hover ? (
-            <div className="w-full h-full flex flex-col bg-red-600">
+            <div className="w-full h-full flex flex-col bg-red-600" id="error">
               <div className="flex-1 flex flex-col">
                 <p className="text-9xl text-center z-40">404</p>
                 <h1 className="text-white z-40 h-full p-1 text- text-center">

@@ -16,11 +16,10 @@
   transition-property: all;
   transform-origin: right;
 }
-#finishLine {
-  background-image: url("data:image/svg+xml,%3csvg width='100%21' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='white' stroke='black' stroke-width='13' stroke-dasharray='30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+#line{
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='black' stroke-width='10' stroke-dasharray='30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
-
-@keyframes example {
+@keyframes padding {
   0%   {padding:0px;}
   25%  {padding:24px;}
   50%  {padding:0px;}
@@ -29,7 +28,24 @@
 }
 
 #logo-container{
-  animation-name: example;
+  animation-name: padding;
   animation-duration: 10s;
   animation-iteration-count: infinite;
+}
+
+@keyframes error {
+  0% {background: rgb(165, 0, 0);}
+  25% {background: red}
+  50% {background: rgb(165, 0, 0);}
+  75% {background: red;}
+  100% {background: rgb(165, 0, 0);}
+}
+#error{
+  animation-name: error;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#line{
+  transition-duration: 2000ms;
 }
