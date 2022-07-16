@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
 import { Intro } from "./Intro";
+import { useWindowHeight} from "@react-hook/window-size";
+//import useScrollPosition from '@react-hook/window-scroll'
 
 export const App = () => {
-
-  const [size, setSize] = useState([window.innerHeight, window.innerWidth])
+  const height = useWindowHeight()
+  //const scroll = useScrollPosition()
   
-  useEffect(()=>{
-
-    window.addEventListener("resize", ()=>setSize([window.innerHeight, window.innerWidth]))
-
-    return window.removeEventListener("resize", ()=>setSize([window.innerHeight, window.innerWidth]))
-  },[])
-
   return (
     <div>
       <section>
-        <Intro width={size[1]} height={size[0]} />
+        <Intro height={height}/>
       </section>
     </div>
   );
