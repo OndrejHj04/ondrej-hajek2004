@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.title{
+    font-size: calc(10vw + 30px);
+    text-align: center;
+    margin-block: auto;
+    margin-left: 100%;
+    animation: move 2s;
+}
+
+@keyframes move{
+    from{
+        margin-left: 100%;
+        transform: translate(0,0);
+    }
+    50%{
+        margin-left: 50%;
+        transform: translate(-50%,0);
+    }
+    to{
+        margin-left: -100%;
+        transform: translate(-50%,0);
+    }
+}
