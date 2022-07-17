@@ -4,6 +4,9 @@
 
 @import "tailwindcss/utilities";
 
-::-webkit-scrollbar{
-    display: none;
+body{
+    overflow: hidden;
+}
+#root{
+    overflow: hidden;
 }

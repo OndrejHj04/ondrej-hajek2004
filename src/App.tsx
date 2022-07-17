@@ -1,4 +1,4 @@
-import { useWindowHeight } from "@react-hook/window-size";
+import { useWindowHeight, useWindowWidth } from "@react-hook/window-size";
 import React, { useEffect, useState } from "react";
 import First from "./components/First";
 import Fourth from "./components/Fourth";
@@ -8,11 +8,17 @@ import "./style.scss";
 
 export const App = () => {
   const height = useWindowHeight();
+  const width = useWindowWidth()
   const [count, setCount] = useState(0);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
+  
   const mobileScrollValuePx = 50
-  const components = [<First count={count} height={height} block={block}/>, <Second count={count} height={height} block={block}/>, <Third count={count} height={height} block={block}/>, <Fourth count={count} height={height} block={block}/>];
+
+  const components = [<First count={count} height={height} block={block} width={width}/>, 
+  <Second count={count} height={height} block={block} width={width}/>, 
+  <Third count={count} height={height} block={block} width={width}/>, 
+  <Fourth count={count} height={height} block={block} width={width}/>];
   const add = (event: React.WheelEvent<HTMLDivElement>) => {
     !block && setCount((c) => (event.deltaY > 0 ? (c < components.length - 1 ? c + 1 : c) : c > 0 ? c - 1 : c));
   };
