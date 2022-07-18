@@ -1,0 +1,1 @@
+export const skills = ["react", "typescript", "firebase", "tailwind", "scss", "cypress"]

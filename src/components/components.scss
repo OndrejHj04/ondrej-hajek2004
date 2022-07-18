@@ -4,25 +4,56 @@
 
 @import "tailwindcss/utilities";
 
-.title{
-    font-size: calc(10vw + 30px);
-    text-align: center;
-    margin-block: auto;
-    margin-left: 100%;
-    animation: move 2s;
+.title {
+  font-size: calc(10vw + 30px);
+  text-align: center;
+  margin-block: auto;
+  margin-left: 100%;
+  animation: title 2s;
+  animation-timing-function: ease-in-out;
 }
 
-@keyframes move{
-    from{
-        margin-left: 100%;
-        transform: translate(0,0);
-    }
-    50%{
-        margin-left: 50%;
-        transform: translate(-50%,0);
-    }
-    to{
-        margin-left: -100%;
-        transform: translate(-50%,0);
-    }
+@keyframes title {
+  from {
+    margin-left: 100%;
+    transform: translate(0, 0);
+  }
+  50% {
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+  }
+  to {
+    margin-left: -100%;
+    transform: translate(-100%, 0);
+  }
+}
+.skill-even {
+  font-size: calc(3vw + 30px);
+  margin-left: 0;
+}
+
+@keyframes move-even {
+  from {
+    margin-left: 100%;
+  }
+
+  to {
+    margin-left: 0;
+  }
+}
+
+.skill-odd {
+  font-size: calc(3vw + 30px);
+  margin-left: 100%;
+  transform: translate(-100%);
+}
+
+@keyframes move-odd {
+  from {
+    margin-left: 0;
+  }
+
+  to {
+    margin-left: 100%;
+  }
 }
