@@ -9,7 +9,7 @@ import "./style.scss";
 export const App = () => {
   const height = useWindowHeight();
   const width = useWindowWidth()
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(2);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
   
@@ -39,7 +39,7 @@ export const App = () => {
 
   return (
     <>
-      <div style={{ height: height, width: window.innerWidth }} onTouchStart={(event) => !block&&setTouch([event.changedTouches[0].clientY, touch[1]])} onTouchEnd={(event) => !block&&setTouch([touch[0], event.changedTouches[0].clientY])} onWheel={(event) => add(event)}>
+      <div className="font-roboto" style={{ height: height, width: window.innerWidth }} onTouchStart={(event) => !block&&setTouch([event.changedTouches[0].clientY, touch[1]])} onTouchEnd={(event) => !block&&setTouch([touch[0], event.changedTouches[0].clientY])} onWheel={(event) => add(event)}>
         {components[count]}
       </div>
     </>

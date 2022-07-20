@@ -57,3 +57,17 @@
     margin-left: 100%;
   }
 }
+
+.box {
+  background-image: repeating-linear-gradient(1deg, #fff, #fff 30px, transparent 30px, transparent 45px, #fff 45px), repeating-linear-gradient(91deg, #fff, #fff 30px, transparent 30px, transparent 45px, #fff 45px), repeating-linear-gradient(181deg, #fff, #fff 30px, transparent 30px, transparent 45px, #fff 45px), repeating-linear-gradient(271deg, #fff, #fff 30px, transparent 30px, transparent 45px, #fff 45px);
+  background-size: 5px 100%, 100% 5px, 5px 100% , 100% 5px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  }
+
+#clock{
+  font-size: calc(8vw + 36px);
+}
+.text{
+  font-size: calc((8vw + 36px)/2);
+}
