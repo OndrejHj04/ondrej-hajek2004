@@ -9,7 +9,7 @@ import "./style.scss";
 export const App = () => {
   const height = useWindowHeight();
   const width = useWindowWidth()
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(3);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
   
