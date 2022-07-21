@@ -16,9 +16,9 @@ export default function First({ count, height, block, width }: { count: number; 
         count > 3 && clearInterval(interval);
         count++;
       }, 500);
-    }, 2000);
+    }, 2000); //eslint-disable-next-line
   }, []);
-
+  console.log("xd")
   return (
     <div className="flex flex-col" style={{ height: height, width: width }}>
       {block ? (
