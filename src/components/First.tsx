@@ -18,11 +18,12 @@ export default function First({ count, height, block, width }: { count: number; 
       }, 500);
     }, 2000); //eslint-disable-next-line
   }, []);
-  console.log("xd")
+
+
   return (
     <div className="flex flex-col" style={{ height: height, width: width }}>
       {block ? (
-        <div className="title w-fit">Intro</div>
+        <div className="title w-fit">Welcome</div>
       ) : (
         <div className="w-full h-full bg-black text-white flex font-roboto xl:flex-row flex-col">
           <div className="xl:h-full h-1/2 flex">

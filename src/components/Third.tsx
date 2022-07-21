@@ -37,7 +37,7 @@ export default function Third({ count, height, block, width }: { count: number; 
   return (
     <div className="flex flex-col" style={{ height: height, width: width }}>
       {block ? (
-        <div className="title w-fit">Free</div>
+        <div className="title w-fit">Routine</div>
       ) : (
         <div className="flex flex-col w-full h-full">
           <h1 className="text-center md:text-4xl text-2xl">My normal day</h1>

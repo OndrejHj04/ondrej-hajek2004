@@ -15,7 +15,7 @@ export default function Fourth({ count, height, block, width }: { count: number;
       ) : (
         <div className="w-full h-full flex ">
           <div className="w-full h-fit flex xl:flex-row flex-col my-auto">
-            <div className="my-auto border-4 border-black p-2 xl:text-xl text-lg rounded-3xl xl:ml-10 mx-auto">
+            <div className="my-auto border-4 border-black sm:p-3 p-1 xl:text-xl text-lg rounded-3xl xl:ml-10 mx-auto">
               <p className="text-4xl">Ondřej Hájek</p>
               <p>Junior frontend developer</p>
               <div className="flex xl:flex-row flex-col">
