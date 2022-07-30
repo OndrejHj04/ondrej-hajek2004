@@ -71,3 +71,16 @@
 .text{
   font-size: calc((8vw + 36px)/2);
 }
+
+.circle{
+  height: calc(20vw + 200px);
+  aspect-ratio: 1/1;
+}
+
+.mid{
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border-radius: 100%;
+  background: white;
+}
