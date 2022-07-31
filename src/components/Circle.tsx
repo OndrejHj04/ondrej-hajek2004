@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { imgs, skills } from "../support";
 
 export const Circle = ({rotate, setRotate}:{rotate: number, setRotate:React.Dispatch<React.SetStateAction<number>>}) => {

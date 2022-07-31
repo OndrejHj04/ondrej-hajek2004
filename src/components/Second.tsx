@@ -5,7 +5,9 @@ import "./components.scss";
 export default function Second({ count, height, block, width }: { count: number; height: number; block: boolean; width: number }) {
   const [rotate, setRotate] = useState(0);
   const [tabs, setTabs] = useState<number[]>([]);
-  useEffect(() => setTabs((c) => (tabs.includes(rotate) ? c : [...c, rotate])), [rotate]);
+  useEffect(() => {
+    setTabs((c) => (tabs.includes(rotate) ? c : [...c, rotate]))// eslint-disable-next-line
+  }, [rotate]);
 
   return (
     <div className="flex" style={{ height: height, width: width }}>

@@ -12,7 +12,6 @@ export const App = () => {
   const [count, setCount] = useState(1);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
-  
   const mobileScrollValuePx = 100;
 
   const components = [<First count={count} height={height} block={block} width={width}/>, 
@@ -22,7 +21,7 @@ export const App = () => {
   const add = (event: React.WheelEvent<HTMLDivElement>) => {
     !block && setCount((c) => (event.deltaY > 0 ? (c < components.length - 1 ? c + 1 : c) : c > 0 ? c - 1 : c));
   };
-  console.log(touch)
+
   useEffect(() => {
     setBlock(true);
 
@@ -33,9 +32,14 @@ export const App = () => {
     setTouch([]);
   }, [count]);
 
-  useEffect(() => {
-    !block && Number(touch[0]) && Number(touch[1]) && Math.abs(touch[0] - touch[1]) > mobileScrollValuePx && setCount((c) => (touch[0] < touch[1] ? (c > 0 ? c - 1 : c) : c < components.length - 1 && touch[0] > touch[1] ? c + 1 : c));
-  }, [touch, components.length, block]);
+
+  useEffect(()=>{
+    if(!block && Number(touch[0]) && Number(touch[1]) && Math.abs(touch[0] - touch[1]) > mobileScrollValuePx){
+      setCount((c) => (touch[0] < touch[1] ? (c > 0 ? c - 1 : c) : c < components.length - 1 && touch[0] > touch[1] ? c + 1 : c))
+    }else if(Number(touch[0]) && Number(touch[1])){
+      setTouch([])
+    }
+  },[block, components.length, touch])
 
   return (
     <>
