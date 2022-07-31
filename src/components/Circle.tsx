@@ -3,7 +3,7 @@ import { imgs, skills } from "../support";
 export const Circle = ({rotate, setRotate}:{rotate: number, setRotate:React.Dispatch<React.SetStateAction<number>>}) => {
 
     return (
-        <div className="flex m-6 ">
+        <div className="flex md:m-6 m-1 ">
 
         <div className="rounded-full circle grid grid-rows-3 grid-cols-2 relative  m-auto w-fit overflow-hidden transition-all"  style={{ transform: `rotate(${rotate * 60}deg)` }}>
 
