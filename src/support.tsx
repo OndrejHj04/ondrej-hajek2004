@@ -6,4 +6,11 @@ export const skills = [
   { tech: "scss", color: "#cc6699", code: "", rotate: 3 },
   { tech: "tailwind", color: "#41a9b4", code: "", rotate: 4 },
 ];
-export const imgs = ["react", "cypress", "firebase", "scss", "tailwind", "typescript"]
+export const imgs = [
+  {tech: "react", title: "App.ts"}, 
+  {tech: "cypress", title: "App.spec.js"}, 
+  {tech: "firebase", title: "database.js"},
+  {tech: "scss", title: "style.scss"},
+  {tech: "tailwind", title: "index.html"},
+  {tech: "typescript", title: "script.ts"}
+  ]
