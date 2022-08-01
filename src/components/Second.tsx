@@ -27,6 +27,14 @@ export default function Second({ count, height, block, width }: { count: number;
               ))}
 
             </div>
+
+            <div style={{fontSize: "calc(1.5vw +  10px)"}}>
+              import &#123;useState&#125; from "React"<br />
+              export const App = () =&gt; &#123; <br />
+              &nbsp;&nbsp;const [count, setCount] = useState(0)<br />
+              &nbsp;&nbsp;return &lt;button&gt;click me!&lt;/button&gt;<br />
+              &#125;
+            </div>
           </div>
         </div>
 
