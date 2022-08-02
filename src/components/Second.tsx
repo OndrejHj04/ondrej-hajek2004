@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import { imgs } from "../support";
 import { Circle } from "./Circle";
 import "./components.scss";
@@ -25,7 +25,7 @@ export default function Second({ count, height, block, width, code }: { count: n
                 </div>
             </div>
 
-            <textarea readOnly style={{fontSize: "calc(1vw +  12px)", background: "#1e1e1e"}} name="" id="" value={code[rotate]} className="bg-black w-full h-full outline-none"></textarea>
+            <textarea readOnly style={{fontSize: "calc(1vw +  7px)", background: "#1e1e1e"}} name="" id="" value={code[rotate]} className="bg-black w-full h-full outline-none"></textarea>
 
           </div>
         </div>
