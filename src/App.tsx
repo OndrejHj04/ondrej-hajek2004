@@ -12,10 +12,11 @@ export const App = () => {
   const [count, setCount] = useState(1);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
+  const [code, setCode] = useState<string[]>([])
   const mobileScrollValuePx = 100;
 
   const components = [<First count={count} height={height} block={block} width={width}/>, 
-  <Second count={count} height={height} block={block} width={width}/>, 
+  <Second count={count} height={height} block={block} width={width} code={code}/>, 
   <Third count={count} height={height} block={block} width={width}/>, 
   <Fourth count={count} height={height} block={block} width={width}/>];
   const add = (event: React.WheelEvent<HTMLDivElement>) => {
@@ -41,6 +42,20 @@ export const App = () => {
     }
   },[block, components.length, touch])
 
+
+  useEffect(()=>{
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/PlayScreen.tsx").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/cypress/e2e/spec.cy.ts").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/database.ts").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/style.scss").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/Form.tsx").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/types.ts").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+  },[])
+
+  function b64_to_utf8(str:string) {
+    return decodeURIComponent(escape(window.atob(str)));
+  }
+  
   return (
     <>
       <div className="font-roboto" style={{ height: height, width: window.innerWidth }} onTouchStart={(event) => !block&&setTouch([event.changedTouches[0].clientY, touch[1]])} onTouchEnd={(event) => !block&&setTouch([touch[0], event.changedTouches[0].clientY])} onWheel={(event) => add(event)}>
