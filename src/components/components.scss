@@ -4,6 +4,10 @@
 
 @import "tailwindcss/utilities";
 
+::-webkit-scrollbar{
+  display: none;
+}
+
 .title {
   font-size: calc(10vw + 30px);
   text-align: center;

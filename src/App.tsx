@@ -13,16 +13,17 @@ export const App = () => {
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
   const [code, setCode] = useState<{file: string, code: string}[]>([])
+  const [codeScroll, setCodeScroll] = useState(false);
   const mobileScrollValuePx = 100;
 
   const components = [<First count={count} height={height} block={block} width={width}/>, 
-  <Second count={count} height={height} block={block} width={width} code={code}/>, 
+  <Second count={count} height={height} block={block} width={width} code={code} setCodeScroll={setCodeScroll}/>, 
   <Third count={count} height={height} block={block} width={width}/>, 
   <Fourth count={count} height={height} block={block} width={width}/>];
   const add = (event: React.WheelEvent<HTMLDivElement>) => {
     !block && setCount((c) => (event.deltaY > 0 ? (c < components.length - 1 ? c + 1 : c) : c > 0 ? c - 1 : c));
   };
-
+  console.log(codeScroll)
   useEffect(() => {
     setBlock(true);
 
@@ -61,7 +62,7 @@ export const App = () => {
   
   return (
     <>
-      <div className="font-roboto" style={{ height: height, width: window.innerWidth }} onTouchStart={(event) => !block&&setTouch([event.changedTouches[0].clientY, touch[1]])} onTouchEnd={(event) => !block&&setTouch([touch[0], event.changedTouches[0].clientY])} onWheel={(event) => add(event)}>
+      <div className="font-roboto" style={{ height: height, width: window.innerWidth }} onTouchStart={(event) => !codeScroll&&!block&&setTouch([event.changedTouches[0].clientY, touch[1]])} onTouchEnd={(event) => !codeScroll&&!block&&setTouch([touch[0], event.changedTouches[0].clientY])} onWheel={(event) => add(event)}>
         {components[count]}
       </div>
     </>
