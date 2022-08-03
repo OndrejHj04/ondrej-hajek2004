@@ -41,7 +41,7 @@ export const App = () => {
       setTouch([])
     }
   },[block, components.length, touch])
-
+ 
   useEffect(()=>{
     const urls = [
       "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/PlayScreen.tsx",
@@ -51,9 +51,8 @@ export const App = () => {
       "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/Form.tsx",
       "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/types.ts",
     ]
-    let arr:{file: string, code: string, index: number}[] = []
-    urls.map((item, index)=>fetch(item).then(res=>res.json()).then(data=>arr.push({file: data.name, code: b64_to_utf8(data.content), index: index})))
-    setCode(arr.sort((a,b)=>a.index-b.index))
+    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/types.ts").then(res=>res.json()).then(data=>data)
+    Promise.all(urls.map(item=>fetch(item))).then(res=>Promise.all(res.map(item=>item.json()))).then(data=>data.map(item=>setCode(c=>[...c, {code: b64_to_utf8(item.content), file: item.name}])))
   },[])
 
   function b64_to_utf8(str:string) {

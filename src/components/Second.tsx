@@ -18,7 +18,7 @@ export default function Second({ count, height, block, width, code }: { count: n
 
   return (
     <div className="flex" style={{ height: height, width: width }}>
-      <div className="w-full h-full flex justify-center flex-col md:flex-row ">
+      <div className="w-full h-full flex flex-col md:flex-row ">
         <Circle rotate={rotate} setRotate={setRotate} active={active} setActive={setActive} />
 
         <div className="flex-1" style={{ minWidth: 300 }}>
@@ -26,13 +26,13 @@ export default function Second({ count, height, block, width, code }: { count: n
             <div className="h-10 flex overflow-auto w-max" style={{ background: "#252526" }}>
               {active&&<div style={{ background: "#2d2d2d" }} className="h-full flex">
                 <img src={require(`../images/${imgs[rotate].tech}.png`)} alt="" className="h-6 m-2" />
-                <p className="m-2 ml-0">{code[rotate].file}</p>
+                <p className="m-2 ml-0">{code.length&&code[rotate].file}</p>
               </div>}
             </div>
           
             {active&&<pre style={{}}>
               <code  className="language-js">
-                {code[rotate].code}
+                {code.length&&code[rotate].code}
               </code>
             </pre>}
 
