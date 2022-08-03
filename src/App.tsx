@@ -12,7 +12,7 @@ export const App = () => {
   const [count, setCount] = useState(1);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
-  const [code, setCode] = useState<string[]>([])
+  const [code, setCode] = useState<{file: string, code: string}[]>([])
   const mobileScrollValuePx = 100;
 
   const components = [<First count={count} height={height} block={block} width={width}/>, 
@@ -42,14 +42,18 @@ export const App = () => {
     }
   },[block, components.length, touch])
 
-
   useEffect(()=>{
-    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/PlayScreen.tsx").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
-    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/cypress/e2e/spec.cy.ts").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
-    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/database.ts").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
-    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/style.scss").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
-    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/Form.tsx").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
-    fetch("https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/types.ts").then(res=>res.json()).then(data=>setCode(c=>[...c, b64_to_utf8(data.content)]))
+    const urls = [
+      "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/PlayScreen.tsx",
+      "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/cypress/e2e/spec.cy.ts",
+      "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/database.ts",
+      "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/style.scss",
+      "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/Form.tsx",
+      "https://api.github.com/repos/OndrejHj04/code-for-OndrejHj/contents/src/types.ts",
+    ]
+    let arr:{file: string, code: string, index: number}[] = []
+    urls.map((item, index)=>fetch(item).then(res=>res.json()).then(data=>arr.push({file: data.name, code: b64_to_utf8(data.content), index: index})))
+    setCode(arr.sort((a,b)=>a.index-b.index))
   },[])
 
   function b64_to_utf8(str:string) {
