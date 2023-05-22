@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { imgs, skills } from "../support";
+import UseAnimations from "react-useanimations";
+import alertCircle from 'react-useanimations/lib/alertCircle';
 
 export const Circle = ({rotate, setRotate, active, setActive}:{rotate: number, setRotate:React.Dispatch<React.SetStateAction<number>>, active: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const container = useRef<HTMLDivElement>(null!)
@@ -43,6 +45,9 @@ export const Circle = ({rotate, setRotate, active, setActive}:{rotate: number, s
             {active?<img src={require(`../images/${imgs[rotate].tech}.png`)} style={{transform: `rotate(-${rotate*60}deg)`}} alt="" className="w-4/6 h-4/6 m-auto"/>:
               <div className="w-full h-full flex relative" ref={container} onClick={engine}>
                 <img src={require("../images/engine.png")} alt="" className="w-3/4 h-3/4 relative m-auto"/>
+                <div className="absolute top-1/2 left-1/2 z-10 rounded-full bg-red-500 cursor-pointer" style={{transform: "translate(-50%, -50%)"}}>
+                  <UseAnimations animation={alertCircle} size={56} />
+                </div>
               </div>
             }
           </div>

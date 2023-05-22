@@ -4,6 +4,9 @@ import { Circle } from "./Circle";
 import "./components.scss";
 import "./theme.scss";
 import Prism from "prismjs";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 export default function Second({ count, height, block, width, code, setCodeScroll }: { setCodeScroll: React.Dispatch<React.SetStateAction<boolean>>; count: number; height: number; block: boolean; width: number; code: { file: string; code: string }[] }) {
   const [rotate, setRotate] = useState(0);
   const [active, setActive] = useState(false);
@@ -34,11 +37,11 @@ export default function Second({ count, height, block, width, code, setCodeScrol
               )}
             </div>
 
-            {active && (
+            {active ? (
               <pre>
                 <code className="language-js">{code.length && code[rotate].code}</code>
               </pre>
-            )}
+            ) : <Skeleton baseColor="#202020" highlightColor="#444" style={{fontSize: height}}/>}
           </div>
         </div>
       </div>}

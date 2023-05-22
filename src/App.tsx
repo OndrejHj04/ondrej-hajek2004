@@ -9,7 +9,7 @@ import "./style.scss";
 export const App = () => {
   const height = useWindowHeight();
   const width = useWindowWidth()
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [block, setBlock] = useState(false);
   const [touch, setTouch] = useState<number[]>([]);
   const [code, setCode] = useState<{file: string, code: string}[]>([])
@@ -23,7 +23,7 @@ export const App = () => {
   const add = (event: React.WheelEvent<HTMLDivElement>) => {
     !block && setCount((c) => (event.deltaY > 0 ? (c < components.length - 1 ? c + 1 : c) : c > 0 ? c - 1 : c));
   };
-  console.log(codeScroll)
+
   useEffect(() => {
     setBlock(true);
 
