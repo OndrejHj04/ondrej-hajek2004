@@ -37,21 +37,26 @@ export default function Fourth({ count, height, block, width }: { count: number;
               <div className="flex flex-col w-fit mx-auto justify-between px-2">
                 <p className="xl:text-5xl text-3xl text-center">With 💘 by Ondřej Hájek</p>
                 <div className="flex justify-between text-center text-xl xl:my-0 my-5">
-                  <a href="https://github.com/OndrejHj04" target="_blank" rel="noreferrer" data-tooltip-id="my-tooltip">
+                  <a href="https://github.com/OndrejHj04" target="_blank" rel="noreferrer" data-tooltip-id="GitHub tooltip" data-tooltip-content="Follow to my GitHub account" data-tooltip-place="bottom">
                     <img src={github} alt="" className="xl:w-20 w-12  xl:h-20 h-12" />
                   </a>
-                  <a href="https://stackoverflow.com/users/16744844/ondrejhj04" target="_blank" rel="noreferrer">
+                  <Tooltip id="GitHub tooltip" />
+                  <a href="https://stackoverflow.com/users/16744844/ondrejhj04" target="_blank" rel="noreferrer" data-tooltip-id="Stack tooltip" data-tooltip-content="Follow to my StackOverflow account" data-tooltip-place="bottom">
                     <img src={stack} alt="" className="xl:w-20 w-12  xl:h-20 h-12" />
                   </a>
-                  <a href="https://www.linkedin.com/in/ondřej-hájek-600527206/" target="_blank" rel="noreferrer">
+                  <Tooltip id="Stack tooltip" />
+                  <a href="https://www.linkedin.com/in/ondřej-hájek-600527206/" target="_blank" rel="noreferrer" data-tooltip-id="LinkedIn tooltip" data-tooltip-content="Follow to my LinkedIn account" data-tooltip-place="bottom">
                     <img src={linkedin} alt="" className="xl:w-20 w-12  xl:h-20 h-12" />
                   </a>
-                  <a href="https://ondrejhj-showroom.netlify.app" target="_blank" rel="noreferrer">
+                  <Tooltip id="LinkedIn tooltip" />
+                  <a href="https://ondrejhj-showroom.netlify.app" target="_blank" rel="noreferrer" data-tooltip-id="Showroom tooltip" data-tooltip-content="Follow to page with my projects" data-tooltip-place="bottom">
                     <img src={project} alt="" className="xl:w-20 w-12  xl:h-20 h-12" />
                   </a>
-                  <a href="https://steamcommunity.com/profiles/76561198152899592/" target="_blank" rel="noreferrer">
+                  <Tooltip id="Showroom tooltip" />
+                  <a href="https://steamcommunity.com/profiles/76561198152899592/" target="_blank" rel="noreferrer" data-tooltip-id="Steam tooltip" data-tooltip-content="Follow to my steam account" data-tooltip-place="bottom">
                     <img src={steam} alt="" className="xl:w-20 w-12  xl:h-20 h-12" />
                   </a>
+                  <Tooltip id="Steam tooltip" />
                 </div>
               </div>
             </div>
