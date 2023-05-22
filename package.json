@@ -34,6 +34,7 @@
     "react-simple-code-editor": "^0.11.2",
     "react-swipeable": "^7.0.0",
     "react-syntax-highlighter": "^15.5.0",
+    "react-tooltip": "^5.13.1",
     "react-use-scroll-direction": "^0.1.0",
     "react-useanimations": "^2.10.0",
     "react-window-size": "^1.2.2",
